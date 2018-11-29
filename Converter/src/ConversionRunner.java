@@ -9,23 +9,27 @@ public class ConversionRunner
 		public static void main(String[] args)
 			{
 				greetUser();
-				int userChoice = pickConversionType();
-				switch(userChoice)
-				{
-					case 1:
-						temperatureConversion();
-						break;
-					case 2:
-						weightConversion();
-						break;
-					case 3:
-						DistanceConverter.distanceConversion();
-						break;
-					case 4:
-						timeConversion();
-						break;
+				do
+					{
+						int userChoice = pickConversionType();
+						switch(userChoice)
+						{
+							case 1:
+								temperatureConversion();
+								break;
+							case 2:
+								weightConversion();
+								break;
+							case 3:
+								DistanceConverter.distanceConversion();
+								break;
+							case 4:
+								timeConversion();
+								break;
+								
 						
-				}
+						} 
+					} while(askRepeat());
 			}
 		public static void greetUser()
 			{
@@ -42,10 +46,14 @@ public class ConversionRunner
 
 			int choice = userInput_int.nextInt();
 			if(choice > 0 && choice < 5)
-			{
-				return choice;
-			}
-			return 0;
+				{
+					return choice;
+				}
+			else
+				{
+					System.out.println("I guess that's none of them. Goodbye!");
+					return 0;
+				}
 		}
  
   public static void timeConversion()
@@ -96,9 +104,8 @@ public class ConversionRunner
 		  double temp = 0;
 		  double conversionFactor = 5;
 		  conversionFactor /= 9;
-		  String unitFrom = "";
-		  String unitTo = "";
-		  String[] tempUnits = {"farenheit", "celsius", "kelvin", "rankine"};
+		  int unitFrom = 0;
+		  int unitTo = 0;
 		  String[] capUnits = {"Farenheit", "Celsius", "Kelvin", "Rankine"};
 		  boolean pickedGoodUnit = false;
 		  
@@ -107,50 +114,50 @@ public class ConversionRunner
 		  while(!pickedGoodUnit)
 			  {
 				  System.out.println("What system of temperature is that?");
-				  for(String s: capUnits)
+				  for(int j = 1; j <= capUnits.length; j++)
 					  {
-						  System.out.println(" " + s);
+						  System.out.println(" " + j + ") " + capUnits[j-1]);
 					  }
-				  unitFrom = userInput_String.nextLine();
-				  unitFrom.toLowerCase();
-				  for(String s: tempUnits)
+				  unitFrom = userInput_int.nextInt();
+				  if(unitFrom > 0 && unitFrom < 5)
 					  {
-						  if(s.equals(unitFrom))
-							  {
-								  pickedGoodUnit = true;
-							  }
+						  pickedGoodUnit = true;
+					  }
+				  else
+					  {
+						  System.out.println("Please pick one of the available temperature systems.");
 					  }
 			  }
 		  pickedGoodUnit = false;
 		  while(!pickedGoodUnit)
 			  {
 				  System.out.println("Now, what temperature system would you like to convert to?");
-				  for(String s: capUnits)
+				  for(int j = 1; j <= capUnits.length; j++)
 					  {
-						  System.out.println(" " + s);
+						  System.out.println(" " + j + ") " + capUnits[j-1]);
 					  }
-				  unitTo = userInput_String.nextLine();
-				  unitTo.toLowerCase();
-				  for(String s: tempUnits)
+				  unitTo = userInput_int.nextInt();
+				  if(unitTo > 0 && unitTo < 5)
 					  {
-						  if(s.equals(unitTo))
-							  {
-								  pickedGoodUnit = true;
-							  }
+						  pickedGoodUnit = true;
+					  }
+				  else
+					  {
+						  System.out.println("Please pick one of the available temperature systems.");
 					  }
 			  }
 		  switch(unitFrom)
 		  	{
-		  		case "farenheit":
+		  		case 1:
 		  			temp -= 32;
 		  			temp *= conversionFactor;
 		  			break;
-		  		case "celsius":
+		  		case 2:
 		  			break;
-		  		case "kelvin":
+		  		case 3:
 		  			temp -= (double)273.15;
 		  			break;
-		  		case "rankine":
+		  		case 4:
 		  			temp -= 32;
 		  			temp *= conversionFactor;
 		  			temp -= (double)273.15;
@@ -158,16 +165,16 @@ public class ConversionRunner
 		  	}
 		  switch(unitTo)
 		  	{
-		  	case "farenheit":
+		  	case 1:
 		  		temp /= conversionFactor;
 		  		temp += 32;
 	  			break;
-	  		case "celsius":
+	  		case 2:
 	  			break;
-	  		case "kelvin":
+	  		case 3:
 	  			temp += 273.15;
 	  			break;
-	  		case "rankine":
+	  		case 4:
 	  			temp /= conversionFactor;
 		  		temp += 32;
 	  			temp += 273.15;
@@ -227,20 +234,20 @@ public class ConversionRunner
 		  if(startingUnit.equals("kilogram")) {
 			   if(endingUnit.equals("gram")) {
 				   double endingValue1 = startingValue*1000;
-				   System.out.println("The result is "+ endingValue1 + " grams");
+				   System.out.printf("The result is %.3f grams.\n", endingValue1);
 			   }
 			   if(endingUnit.equals("ton")) {
 				   double endingValue2 = startingValue/1000;
-				   System.out.println("The result is "+ endingValue2 + " tons");
+				   System.out.printf("The result is %.3f tons.\n", endingValue2);
 			   }
 			   if(endingUnit.equals("pound")) {
 				   double endingValue3 = startingValue*2.20462;
-				   System.out.println("The result is "+ endingValue3 + " pounds");
+				   System.out.printf("The result is %.3f pounds.\n", endingValue3);
 			   }
 			   
 			   if(endingUnit.equals("ounce")) {
 				   double endingValue4 = startingValue*35.274;
-				   System.out.println("The result is "+ endingValue4 + " ounces");
+				   System.out.printf("The result is %.3f ounces.\n", endingValue4);
 			   } 
 			   if(sameUnit=true) {
 				   System.out.println("The result is "+ startingValue + " kilograms");
@@ -344,6 +351,23 @@ public class ConversionRunner
 	  }
 	 
   }
+  public static boolean askRepeat()
+	  {
+		  System.out.println("Would you like to \n"
+		  		+ "1) Calculate another conversion, or \n"
+		  		+ "2) Are you finished?");
+		  int userChoice = userInput_int.nextInt();
+		  switch(userChoice)
+		  {
+			  case 1:
+				  return true;
+			  case 2:
+				  return false;
+			  default:
+				  break;
+		  }
+		  return false;
+	  }
 	}
  
 
