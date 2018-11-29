@@ -181,6 +181,8 @@ public class ConversionRunner
 		  	}
 		  System.out.printf("The temperature is %.3f\n", temp);
 	  }
+  
+  
   public static void weightConversion() {
 	  String[] weightunits = {"kilogram", "gram", "ton", "pound","ounce"};
 	  boolean choosingStartWeight = true;
@@ -191,7 +193,8 @@ public class ConversionRunner
 			  System.out.println(a);
 			
 		  }
-		  startingUnit = userInput_String.nextLine();
+		  Scanner userInput = new Scanner(System.in);
+		  startingUnit = userInput.nextLine();
 		  
 		  
 		  for(String a : weightunits) {
@@ -204,7 +207,8 @@ public class ConversionRunner
 	 
 	  
 	  System.out.println("Put in a value of this weight.");
-	  double startingValue = userInput_double.nextDouble();
+	  Scanner userInput2 = new Scanner(System.in);
+	  double startingValue = userInput2.nextDouble();
 	  
 	 
 	  
@@ -215,7 +219,8 @@ public class ConversionRunner
 		  for(String a : weightunits) {
 			  System.out.println(a);
 		  }
-		  String endingUnit = userInput_String.nextLine();
+		  Scanner userInput = new Scanner (System.in);
+		  String endingUnit = userInput.nextLine();
 		  for(String a : weightunits) {
 			  if (endingUnit.toLowerCase().equals(a.toLowerCase()))
 					{
@@ -233,24 +238,22 @@ public class ConversionRunner
 		  if(startingUnit.equals("kilogram")) {
 			   if(endingUnit.equals("gram")) {
 				   double endingValue1 = startingValue*1000;
-				   System.out.printf("The result is %.3f grams.\n", endingValue1);
+				   System.out.println("The result is "+ endingValue1 + " grams");
 			   }
 			   if(endingUnit.equals("ton")) {
 				   double endingValue2 = startingValue/1000;
-				   System.out.printf("The result is %.3f tons.\n", endingValue2);
+				   System.out.println("The result is "+ endingValue2 + " tons");
 			   }
 			   if(endingUnit.equals("pound")) {
 				   double endingValue3 = startingValue*2.20462;
-				   System.out.printf("The result is %.3f pounds.\n", endingValue3);
+				   System.out.println("The result is "+ endingValue3 + " pounds");
 			   }
 			   
 			   if(endingUnit.equals("ounce")) {
 				   double endingValue4 = startingValue*35.274;
-				   System.out.printf("The result is %.3f ounces.\n", endingValue4);
+				   System.out.println("The result is "+ endingValue4 + " ounces");
 			   } 
-			   if(sameUnit=true) {
-				   System.out.println("The result is "+ startingValue + " kilograms");
-			   }
+			   
 			  
 			  }
 		  
@@ -273,9 +276,7 @@ public class ConversionRunner
 				   double endingValue8 = startingValue/35.274;
 				   System.out.println("The result is "+ endingValue8 + " ounces");
 			   }
-			   if(sameUnit=true) {
-				   System.out.println("The result is "+ startingValue + " grams");
-			   }
+			   
 			  }
 		  
 		  if(startingUnit.equals("ton")) {
@@ -296,9 +297,7 @@ public class ConversionRunner
 				   double endingValue8 = startingValue*32000;
 				   System.out.println("The result is "+ endingValue8 + " ounces");
 			   }
-			   if(sameUnit=true) {
-				   System.out.println("The result is "+ startingValue + " tons");
-			   }
+			  
 			  }
 		  
 		  if(startingUnit.equals("pound")) {
@@ -319,9 +318,7 @@ public class ConversionRunner
 				   double endingValue8 = startingValue*16;
 				   System.out.println("The result is "+ endingValue8 + " ounces");
 			   }
-			   if(sameUnit=true) {
-				   System.out.println("The result is "+ startingValue + " pounds");
-			   }
+			   
 			  }
 		  
 		  if(startingUnit.equals("ounce")) {
@@ -342,9 +339,7 @@ public class ConversionRunner
 				   double endingValue8 = startingValue*0.062499949018750007579;
 				   System.out.println("The result is "+ endingValue8 + " pounds");
 			   }
-			   if(sameUnit=true) {
-				   System.out.println("The result is "+ startingValue + " ounces");
-			   }
+			  
 			   
 			  }
 	  }
