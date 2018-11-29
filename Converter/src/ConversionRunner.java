@@ -24,9 +24,8 @@ public class ConversionRunner
 								DistanceConverter.distanceConversion();
 								break;
 							case 4:
-								timeConversion();
+								TimeConversion.timeConverter();
 								break;
-								
 						
 						} 
 					} while(askRepeat());
