@@ -55,49 +55,6 @@ public class ConversionRunner
 				}
 		}
  
-  public static void timeConversion()
-		{
-			String[] timeUnits = {"Milliseconds", "Seconds", "Minutes", "Hours", "Days", "Weeks", "Years", "Decades", "Centuries"};
-			boolean choosingStartingUnit = true;
-			String startingUnit = "";
-			while (choosingStartingUnit)
-				{
-					System.out.println("What's your unit of time you want to convert from?");
-					for (String s: timeUnits)
-						{
-							System.out.println(" " + s);
-						}
-					startingUnit = userInput_String.nextLine();
-					for (String s: timeUnits)
-						{
-							if (startingUnit.toLowerCase().equals(s.toLowerCase()))
-								choosingStartingUnit = false;
-						}
-				}
-			
-			boolean choosingEndingUnit = true;
-			boolean sameUnit = false;
-			while (choosingEndingUnit)
-				{
-					System.out.println("What's your unit of time you want to convert to?");
-					for (String s: timeUnits)
-						{
-							System.out.println(s);
-						}
-					String endingUnit = userInput_String.nextLine();
-					for (String s: timeUnits)
-						{
-							if (endingUnit.toLowerCase().equals(s.toLowerCase()))
-								{
-									if (endingUnit.toLowerCase().equals(startingUnit.toLowerCase()))
-										sameUnit = true;
-									
-									else
-										choosingStartingUnit = false;
-								}
-						}
-				}
-		}
   public static void temperatureConversion()
 	  {
 		  double temp = 0;
@@ -187,12 +144,11 @@ public class ConversionRunner
 	  String startingUnit = "";
 	  while(choosingStartWeight) {
 		  System.out.println("What's your unit of weight you want to convert from?");
-		  for(String a: weightunits) {
-			  System.out.println(a);
-			
-		  }
+		  for(int a = 0; a < weightunits.length; a++) 
+			  {
+			  System.out.println(" " + (a+1) + ") " + weightunits[a]);
+			  }
 		  startingUnit = userInput_String.nextLine();
-		  
 		  
 		  for(String a : weightunits) {
 			  if (startingUnit.toLowerCase().equals(a.toLowerCase()))
