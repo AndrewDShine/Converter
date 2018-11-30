@@ -54,7 +54,7 @@ public class ConversionRunner
 					return 0;
 				}
 		}
- 
+
   public static void timeConversion()
 		{
 			String[] timeUnits = {"Milliseconds", "Seconds", "Minutes", "Hours", "Days", "Weeks", "Years", "Decades", "Centuries"};
@@ -347,6 +347,7 @@ public class ConversionRunner
 	  
 	 
   }
+
   //this is coco's final version
   public static boolean askRepeat()
 	  {
@@ -365,6 +366,7 @@ public class ConversionRunner
 		  }
 		  return false;
 	  }
+
 	}
  
 
