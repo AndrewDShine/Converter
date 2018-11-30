@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Currency
 	{
 		
-		public static void main(String[] args)
+		public static void CurrencyRunner()
 			{
 				String[] Units = {"USD", "CNY", "EUR", "GBP", "MXN"};
 				boolean choosingCurrency = true;
@@ -16,6 +16,7 @@ public class Currency
 							}
 						Scanner userInput = new Scanner (System.in);
 						String startingCurrency = userInput.nextLine();
+						startingCurrency = startingCurrency.toLowerCase();
 						for (String c: Units)
 							{
 								if(startingCurrency.toLowerCase().equals(c.toLowerCase()))
@@ -34,6 +35,7 @@ public class Currency
 							}
 						Scanner userInput2 = new Scanner (System.in);
 						String endingCurrency = userInput.nextLine();
+						endingCurrency = endingCurrency.toLowerCase();
 						for (String c: Units)
 							{
 								if(endingCurrency.toLowerCase().equals(c.toLowerCase()))

@@ -26,6 +26,9 @@ public class ConversionRunner
 							case 4:
 								TimeConversion.timeConverter();
 								break;
+							case 5:
+								Currency.CurrencyRunner();
+								break;
 						
 						} 
 					} while(askRepeat());
@@ -41,10 +44,11 @@ public class ConversionRunner
 					+ "\n 1) Temperature"
 					+ "\n 2) Weight"
 					+ "\n 3) Distance"
-					+ "\n 4) Time");
+					+ "\n 4) Time"
+					+ "\n 5) Currency");
 
 			int choice = userInput_int.nextInt();
-			if(choice > 0 && choice < 5)
+			if(choice > 0 && choice < 6)
 				{
 					return choice;
 				}
